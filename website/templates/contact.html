@@ -1,0 +1,66 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+
+
+<form  method="post">
+    {%csrf_token%}
+    <div class="form-group">
+    {{form.nama_lengkap.label_tag}}
+    {{form.nama_lengkap}}
+    </div>
+
+
+    <div class="form-group">
+        {{form.jenis_kelamin.label_tag}}
+        {% for compon in form.jenis_kelamin %}
+            <div class="form-check">
+                 {{compon.tag}}
+                 <label for="{{compon.id_for_label}}" class="form-check-input">
+                    {{compon.choice_label}}
+                 </label>
+            </div>
+        {%endfor%}
+    </div>
+
+
+    <div class="form-group">
+        {{form.tanggal_lahir.label_tag}}
+         <div class="form-row">
+        {{form.tanggal_lahir}}
+         </div>
+
+
+    <div class="form-group">
+        {{form.email.label_tag}}
+         <div class="form-row">
+        {{form.email}}
+         </div>
+    </div>
+
+
+
+    <div class="form-group">
+         {{form.alamat.label_tag}}
+        <div class="form-row">
+        {{form.alamat}}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+          <label class="form-check-label" for= "aggre_id}}">{{form.aggre.choice_label}}</label>
+
+            {{form.aggre}}
+    </div>
+
+
+
+    </div>
+    <button type="button" class="btn btn-primary btn-lg">KIRIM</button>
+
+
+</form>
+</div>
+{%endblock%}
